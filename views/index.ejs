@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+<div id="cont">
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="/register" method="post">
+			<h1>Create Account</h1>
+      <input id="uname" type="text" name="username" placeholder="username" > 
+      <p id="alert" style="position: absolute; transition: 500ms; top: 26%; left: 65%; padding: 2px 10px; opacity: 0; background-color: red; color: rgb(255, 255, 255); font-weight: 600;" >user exist</p>
+      <input type="email" name="email"  placeholder="email"> 
+      <input type="text" name="number" placeholder="contact"> <br>
+      <input type="password" name="password"  placeholder="password"><br>
+     <button id="submitbtn" type="submit" > submit</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+    <form action="/login" method="post">
+      <h1>Sign in here</h1>
+      <input type="text" name="username" placeholder="username"> <br>
+      <input type="password" name="password"  placeholder="password"> <br>
+      <input  type="submit" value="submit">
+    </form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Not a user?</h1>
+				<p>Enter your personal details and start journey with us</p>
+				<button class="ghost" id="signUp">Create an account</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js" integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script >
+function anim(){
+  const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+	container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', () => {
+	container.classList.remove("right-panel-active");
+});
+
+}
+
+anim()
+  var input = document.querySelector("#uname");
+  var submit = document.querySelector("#submitbtn");
+  var alert = document.querySelector("#alert");
+  input.addEventListener("input", function() {
+  axios
+    .get(`/username/${input.value}`)
+    .then(function(data) {
+      if (input.value.trim() !=="") {
+        if (data.data.found) {
+          // If the data indicates that the username is found
+          input.style.borderColor = "red";
+          alert.style.opacity = "1";
+          submit.setAttribute("disabled", true);
+        } else {
+          // If the data indicates that the username is not found
+          input.style.borderColor = "rgba(53, 52, 52, 0.544)";
+          submit.removeAttribute("disabled");
+          alert.style.opacity = "0";
+        }
+      } else {
+        // If the input value is empty or whitespace
+        input.style.borderColor = "rgba(53, 52, 52, 0.544)";
+        submit.setAttribute("disabled", true);
+        alert.style.opacity = "0";
+      }
+    });
+});
+
+
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+  <!-- <div id="main">
+    <h1>Register Here</h1>
+    <form action="/register" method="post">
+      <input type="text" name="username" placeholder="username"> <br>
+      <input type="text" name="profile" placeholder="profile"> <br>
+      <input type="email" name="email"  placeholder="email"> <br>
+      <input type="number" name="number"  placeholder="Ph"> <br>
+      <input type="password" name="password"  placeholder="password"><br>
+      <input type="submit" value="submit">
+    </form>
+   </div>
+   <div id="main2">
+    <h1>Login Here</h1>
+    <form action="/login" method="post">
+      <input type="text" name="username" placeholder="username"> <br>
+      <input type="password" name="password"  placeholder="password"> <br>
+      <input type="submit" value="submit">
+    </form>
+   </div> -->

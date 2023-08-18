@@ -1,0 +1,242 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: gilroy;
+}
+html,body{
+  
+    height: 100%;
+    width: 100%;
+}
+#main{
+    height: 100vh;
+    width: 100%;
+}
+#main>img{
+    filter: blur(10px);
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    z-index: -99;
+    position: absolute;
+}
+/* #cont{
+    height: 100%;
+    position: relative;
+}
+input{
+    padding: 10px 60px;
+    margin-top: 20px;
+}
+#main2{
+    position: absolute;
+    top: 24%;
+    left: 60%;
+}
+#main{
+    position: absolute;
+    top: 24%;
+    left: 20%;
+} */
+#nav{
+    height: 60px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 100px;
+    background-color: #2a27275b;
+}
+#right a{
+    text-transform: uppercase;
+    padding-left: 30px;
+    text-decoration: none;
+    color: #fff;
+}
+#left a{
+    font-size: 25px;
+    padding-left: 30px;
+    text-decoration: none;
+    color: #fff;
+}
+#card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh
+
+}
+
+@import "compass/css3";
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+
+body {
+  background:#9a9a9a;
+}
+
+.container {
+  width:50%;
+box-shadow: 4px 5px 10px black;
+}
+
+
+
+.service-details {
+    cursor: pointer;
+	/*width: 460px;*/
+	height: 500px;	
+	/*height: 230px;*/
+	overflow: hidden;
+    z-index: 999;
+	position: relative;
+}
+
+.service-details img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: inherit;
+	width: auto;
+	height: 100%;
+	float: left;
+	transition: all 0.8s;
+	-moz-transition: all 0.8s;
+
+}
+#form{
+    display: none;
+}
+/* #card{
+    position: absolute;
+    top: 0;
+} */
+
+.service-details .service-hover-text h3 {
+	padding-bottom: 30px;
+	font-size: 25px;
+  font-weight:300;
+	font-family: "Open Sans";
+}
+
+
+
+
+.service-details .service-text {
+	width: 50%;
+	height: inherit;
+	background: #000;
+	float: left;
+	position: absolute;
+	left: 50%;
+}
+
+.service-details .service-text p {
+	padding:100px 0px 0px 20px;
+	font-size: 24px;
+	font-family: "Open Sans";
+  font-weight:700;
+	color: #fff;
+}
+
+
+.service-details .service-text {
+	float: left;
+} 
+
+.service-white {
+	background: #eee !important;
+	width: 50% !important;
+	height: inherit !important;
+}
+
+.service-white p {
+	color: #000 !important;
+}
+h1{
+    position: absolute;
+    top: 26%;
+    left: 21%;
+    letter-spacing: 2px;
+    font-weight: 600;
+    font-family: gilroy;
+    text-transform: capitalize;
+    color: #000;
+}
+.service-white.service-text{
+    display: flex;
+    align-items: center;
+    text-align: start;
+    justify-content: center;
+}
+.container a{
+    text-decoration: none;
+    color: rgb(255, 252, 252);
+    position: absolute;
+    background-color: #494646;
+    border-radius: 20px;
+    bottom: 10%;
+    padding: 4px 70px;
+    left: 45%;
+}
+#det h3{
+    padding-bottom: 5px;
+}
+
+ .container a:hover{
+    background-color: #04c5e7;
+   transition: 500ms;
+ }
+
+ #search{
+    position: absolute;
+    top: 280%;
+    left: 10px;
+    height: 400px;
+    width: 350px;
+    position: relative;
+ }
+#inp{
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    width: 100%;
+    height: 15%;
+}
+#users{
+    opacity: 0;
+    overflow: auto;
+    width: 100%;
+    height: 85%;
+}
+#users::-webkit-scrollbar{
+    display: none;
+}
+#inp input{
+
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 10px 0;
+    outline: none;
+    padding-right: 100px;
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+#inp input::placeholder{
+    color: white;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+#user{
+    background-color: #652424;
+    display: flex;
+    padding-left: 20px;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+}
